@@ -103,7 +103,7 @@ PRIVATE = {
 			}			
 		};
 		
-		if(options.method === 'POST') {
+		if(options.method === 'POST' || options.method === 'PUT') {
 			//TODO: set headers based on options.data before sending
 			if(options.data instanceof FileList) {
 				xhr.setRequestHeader('Content-Type', 'multipart/form-data');
@@ -231,6 +231,10 @@ PRIVATE = {
 
 µ.post = function() {
 	return PRIVATE.callAjax('post', arguments);
+};
+
+µ.put = function() {
+	return PRIVATE.callAjax('put', arguments);
 };
 
 µ.get = function() {
